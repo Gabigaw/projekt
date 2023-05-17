@@ -1,4 +1,4 @@
 package org.example;
 
-public class Wenus {
+public class Kolonia {
 }
