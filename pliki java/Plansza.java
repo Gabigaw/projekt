@@ -14,6 +14,8 @@ public class Plansza extends JFrame implements MouseListener {
     JButton przyciskMerkurego;
     JButton przyciskWenus;
     JLabel labelTekstowy= new JLabel();
+    JLabel slonce = new JLabel();
+
 
     //------------ Zmienne projektowe -------------
     Dom ziemia = new Dom("Ziemia",100,30);
@@ -63,6 +65,13 @@ public class Plansza extends JFrame implements MouseListener {
         przyciskMerkurego.addMouseListener(this);
         przyciskMerkurego.setBounds(10,400,80,70);
         mainpanel.add(przyciskMerkurego);
+
+        // ----- Słońce-------------------
+        slonce.setIcon(new ImageIcon("rysunek.png"));
+        slonce.setVerticalAlignment(JLabel.CENTER);
+        slonce.setHorizontalAlignment(JLabel.CENTER);
+        slonce.setBounds(200,200,200,200);
+        mainpanel.add(slonce);
 
 
         //------  Konfiguracja Panelu tekstowego -----------------
