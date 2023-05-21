@@ -5,9 +5,6 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-
-
-
 public class Plansza extends JFrame implements MouseListener {
     // -------- Zmienne odpowiedzialne za wygląd planszy ---------------
     JPanel mainpanel = new JPanel(); // Panel główny
@@ -22,9 +19,9 @@ public class Plansza extends JFrame implements MouseListener {
 
     //------------ Zmienne projektowe -------------
     Dom ziemia = new Dom("Ziemia", 100, 30);
-    Mars mars = new Mars("Mars", 0, 100);
-    Merkury merkury = new Merkury("Merkury", 0, -50);
-    Wenus wenus = new Wenus("Wenus", 0, -100);
+    Kolonia mars = new Kolonia("Mars", 0, 100);
+    Kolonia merkury = new Kolonia("Merkury", 0, -50);
+    Kolonia wenus = new Kolonia("Wenus", 0, -100);
     Kometa kometa = new Kometa();
 
     Plansza() {
