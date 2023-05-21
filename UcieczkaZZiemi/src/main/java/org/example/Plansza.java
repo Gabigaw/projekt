@@ -17,9 +17,12 @@ public class Plansza extends JFrame implements MouseListener {
     JLabel slonce = new JLabel();
 
 
-    //------------ Zmienne projektowe -------------
+    //------------ Zmienne projektowe, dane planet -------------
     Dom ziemia = new Dom("Ziemia",100,30);
-// ------//
+    Kolonia mars = new Kolonia("Mars", 0, 100);
+    Kolonia merkury = new Kolonia("Merkury", 0, -100);
+    Kolonia wenus = new Kolonia("Wenus", 0, -50);
+    // ------//
 
     Plansza(){
         // -------- Ustawienia podstawowe Planszy: reakcja na zamknięcie, możliwość zmiany rozmiaru, rozmiar -------
@@ -83,23 +86,29 @@ public class Plansza extends JFrame implements MouseListener {
 
         labelTekstowy.setText("Domyslny tekst");
 
-
     }
 
 
     @Override // Metoda (z interfejsu MouseListener) odpowiadająca za to co stanie się po kliknięciu myszką na dany przycisk
     public void mouseClicked(MouseEvent e) {
-        if (e.getSource()==przyciskZiemi){
-            labelTekstowy.setText("Ziemia klikniety");
-        }
-        else if (e.getSource()==przyciskMarsa){
-            labelTekstowy.setText("Mars klikniety");
-        }
-        else if (e.getSource()==przyciskMerkurego) {
-            labelTekstowy.setText("Merkury klikniety");
-        }
-        else if (e.getSource()==przyciskWenus) {
-            labelTekstowy.setText("Wenus kliknieta");
+        if(ziemia.liczbaludnosci!=0) {
+            if (e.getSource() == przyciskZiemi) {
+                labelTekstowy.setText("Ziemia klikniety");
+            } else if (e.getSource() == przyciskMarsa) {
+                labelTekstowy.setText("Rakieta leci na Marsa!");
+                ziemia.liczbaludnosci = ziemia.liczbaludnosci - 10;
+                mars.liczbaludnosci = mars.liczbaludnosci + 10;
+            } else if (e.getSource() == przyciskMerkurego) {
+                labelTekstowy.setText("Rakieta leci na Merkury!");
+                ziemia.liczbaludnosci = ziemia.liczbaludnosci - 10;
+                merkury.liczbaludnosci = merkury.liczbaludnosci + 10;
+            } else if (e.getSource() == przyciskWenus) {
+                labelTekstowy.setText("Rakieta leci na Wenus!");
+                ziemia.liczbaludnosci = ziemia.liczbaludnosci - 10;
+                wenus.liczbaludnosci = wenus.liczbaludnosci + 10;
+            }
+        }else {
+            labelTekstowy.setText("Ziemia wyludniona!");
         }
 
     }
@@ -118,17 +127,17 @@ public class Plansza extends JFrame implements MouseListener {
     @Override
     public void mouseEntered(MouseEvent e) {
         if (e.getSource()==przyciskZiemi){
-            labelTekstowy.setText("<html>Ziemia parametry: <br/>"+ "Temperatura: "+ ziemia.temperatura +"<br/> Liczba ludnosci: "+ ziemia.liczbaludnosci + " <br/>Specjalna cecha: "+ ziemia.specjalnaCecha + "<html/>");
+            labelTekstowy.setText("<html>Ziemia parametry: <br/>"+ "Temperatura: "+ ziemia.temperatura +"<br/> Liczba ludnosci: "+ ziemia.liczbaludnosci + " <br/>Specjalna cecha: "+ ziemia.specjalnaCecha + "/<html/>");
 
         }
         else if (e.getSource()==przyciskMarsa){
-            labelTekstowy.setText("Mars - tu znajda sie jego parametry");
+            labelTekstowy.setText("<html>Mars parametry: <br/>"+ "Temperatura: "+ mars.temperatura +"<br/> Liczba ludnosci: "+ mars.liczbaludnosci + " <br/>Specjalna cecha: brak <html/>");
         }
         else if (e.getSource()==przyciskMerkurego) {
-            labelTekstowy.setText("Merkury - tu znajda sie jego parametry");
+            labelTekstowy.setText("<html>Merkury parametry: <br/>"+ "Temperatura: "+ merkury.temperatura +"<br/> Liczba ludnosci: "+ merkury.liczbaludnosci + " <br/>Specjalna cecha: brak <html/>");
         }
         else if (e.getSource()==przyciskWenus) {
-            labelTekstowy.setText("Wenus - tu znajda sie jej parametry");
+            labelTekstowy.setText("<html>Wenus parametry: <br/>"+ "Temperatura: "+ wenus.temperatura +"<br/> Liczba ludnosci: "+ wenus.liczbaludnosci + " <br/>Specjalna cecha: brak <html/>");
         }
 
     }

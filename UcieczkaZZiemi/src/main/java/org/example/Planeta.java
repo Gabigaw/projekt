@@ -6,5 +6,4 @@ public class Planeta implements Ucieczka {
     String nazwa;
     String specjalnaCecha;
 
-
 }
