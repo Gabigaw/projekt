@@ -82,7 +82,6 @@ public class Plansza extends JFrame implements MouseListener {
 
         //------  Konfiguracja Panelu tekstowego -----------------
         actionpanel.setBounds(0, 500, 500, 200);
-        actionpanel.setBackground(Color.gray);
         actionpanel.add(labelTekstowy);
         actionpanel.setOpaque(true);
         this.add(actionpanel);

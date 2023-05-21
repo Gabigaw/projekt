@@ -1,0 +1,137 @@
+Index: pliki java/Plansza.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.MouseEvent;\r\nimport java.awt.event.MouseListener;\r\n\r\npublic class Plansza extends JFrame implements MouseListener {\r\n    // -------- Zmienne odpowiedzialne za wygląd planszy ---------------\r\n    JPanel mainpanel = new JPanel(); // Panel główny\r\n    JPanel actionpanel = new JPanel(); // Panel wyświetlający komunikaty\r\n    JButton przyciskZiemi;\r\n    JButton przyciskMarsa;\r\n    JButton przyciskMerkurego;\r\n    JButton przyciskWenus;\r\n    JLabel labelTekstowy= new JLabel();\r\n    JLabel slonce = new JLabel();\r\n\r\n\r\n    //------------ Zmienne projektowe -------------\r\n    Dom ziemia = new Dom(\"Ziemia\",100,30);\r\n// ------//\r\n\r\n    Plansza(){\r\n        // -------- Ustawienia podstawowe Planszy: reakcja na zamknięcie, możliwość zmiany rozmiaru, rozmiar -------\r\n        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n        this.setTitle(\"Ucieczka z Ziemi\");\r\n        this.setResizable(false);\r\n        this.setSize(500,700);\r\n        this.setLayout(null);\r\n        this.setVisible(true);\r\n\r\n\r\n        // ----- Kofiguracja Panelu głównego mainpanel ---------\r\n        mainpanel.setBounds(0,0,500,500);\r\n        mainpanel.setBackground(new Color(8,2,43));\r\n        mainpanel.setLayout(null);\r\n        this.add(mainpanel);\r\n\r\n        // Konfiguracje poszcególnych przycisków\r\n        przyciskZiemi = new JButton();\r\n        przyciskZiemi.setBackground(new Color(130,213,121));\r\n        przyciskZiemi.setText(\"Ziemia\");\r\n        przyciskZiemi.addMouseListener(this);\r\n        przyciskZiemi.setBounds(10,10,80,70);\r\n        mainpanel.add(przyciskZiemi);\r\n\r\n        przyciskMarsa = new JButton();\r\n        przyciskMarsa.setBackground(new Color(239,137,21));\r\n        przyciskMarsa.setText(\"Mars\");\r\n        przyciskMarsa.addMouseListener(this);\r\n        przyciskMarsa.setBounds(380,400,80,70);\r\n        mainpanel.add(przyciskMarsa);\r\n\r\n        przyciskWenus = new JButton();\r\n        przyciskWenus.setBackground(new Color(239,21,101));\r\n        przyciskWenus.setText(\"Wenus\");\r\n        przyciskWenus.addMouseListener(this);\r\n        przyciskWenus.setBounds(380,10,80,70);\r\n        mainpanel.add(przyciskWenus);\r\n\r\n        przyciskMerkurego = new JButton();\r\n        przyciskMerkurego.setBackground(new Color(243,232,80));\r\n        przyciskMerkurego.setText(\"Merkury\");\r\n        przyciskMerkurego.addMouseListener(this);\r\n        przyciskMerkurego.setBounds(10,400,80,70);\r\n        mainpanel.add(przyciskMerkurego);\r\n\r\n        // ----- Słońce-------------------\r\n        slonce.setIcon(new ImageIcon(\"rysunek.png\"));\r\n        slonce.setVerticalAlignment(JLabel.CENTER);\r\n        slonce.setHorizontalAlignment(JLabel.CENTER);\r\n        slonce.setBounds(200,200,200,200);\r\n        mainpanel.add(slonce);\r\n\r\n\r\n        //------  Konfiguracja Panelu tekstowego -----------------\r\n        actionpanel.setBounds(0,500,500,200);\r\n        actionpanel.setBackground(Color.gray);\r\n        actionpanel.add(labelTekstowy);\r\n        actionpanel.setOpaque(true);\r\n        this.add(actionpanel);\r\n\r\n        labelTekstowy.setText(\"Domyslny tekst\");\r\n\r\n\r\n    }\r\n\r\n\r\n    @Override // Metoda (z interfejsu MouseListener) odpowiadająca za to co stanie się po kliknięciu myszką na dany przycisk\r\n    public void mouseClicked(MouseEvent e) {\r\n        if (e.getSource()==przyciskZiemi){\r\n            labelTekstowy.setText(\"Ziemia klikniety\");\r\n        }\r\n        else if (e.getSource()==przyciskMarsa){\r\n            labelTekstowy.setText(\"Mars klikniety\");\r\n        }\r\n        else if (e.getSource()==przyciskMerkurego) {\r\n            labelTekstowy.setText(\"Merkury klikniety\");\r\n        }\r\n        else if (e.getSource()==przyciskWenus) {\r\n            labelTekstowy.setText(\"Wenus kliknieta\");\r\n        }\r\n\r\n    }\r\n\r\n    @Override\r\n    public void mousePressed(MouseEvent e) {\r\n\r\n\r\n    }\r\n\r\n    @Override\r\n    public void mouseReleased(MouseEvent e) {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void mouseEntered(MouseEvent e) {\r\n        if (e.getSource()==przyciskZiemi){\r\n            labelTekstowy.setText(\"<html>Ziemia parametry: <br/>\"+ \"Temperatura: \"+ ziemia.temperatura +\"<br/> Liczba ludnosci: \"+ ziemia.liczbaludnosci + \" <br/>Specjalna cecha: \"+ ziemia.specjalnaCecha + \"<html/>\");\r\n\r\n        }\r\n        else if (e.getSource()==przyciskMarsa){\r\n            labelTekstowy.setText(\"Mars - tu znajda sie jego parametry\");\r\n        }\r\n        else if (e.getSource()==przyciskMerkurego) {\r\n            labelTekstowy.setText(\"Merkury - tu znajda sie jego parametry\");\r\n        }\r\n        else if (e.getSource()==przyciskWenus) {\r\n            labelTekstowy.setText(\"Wenus - tu znajda sie jej parametry\");\r\n        }\r\n\r\n    }\r\n\r\n    @Override\r\n    public void mouseExited(MouseEvent e) {\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pliki java/Plansza.java b/pliki java/Plansza.java
+--- a/pliki java/Plansza.java	
++++ b/pliki java/Plansza.java	
+@@ -14,7 +14,7 @@
+     JButton przyciskMerkurego;
+     JButton przyciskWenus;
+     JLabel labelTekstowy= new JLabel();
+-    JLabel slonce = new JLabel();
++    JLabel slonce= new JLabel();
+ 
+ 
+     //------------ Zmienne projektowe -------------
+@@ -31,10 +31,12 @@
+         this.setVisible(true);
+ 
+ 
++
+         // ----- Kofiguracja Panelu głównego mainpanel ---------
+         mainpanel.setBounds(0,0,500,500);
+         mainpanel.setBackground(new Color(8,2,43));
+         mainpanel.setLayout(null);
++
+         this.add(mainpanel);
+ 
+         // Konfiguracje poszcególnych przycisków
+@@ -66,13 +68,6 @@
+         przyciskMerkurego.setBounds(10,400,80,70);
+         mainpanel.add(przyciskMerkurego);
+ 
+-        // ----- Słońce-------------------
+-        slonce.setIcon(new ImageIcon("rysunek.png"));
+-        slonce.setVerticalAlignment(JLabel.CENTER);
+-        slonce.setHorizontalAlignment(JLabel.CENTER);
+-        slonce.setBounds(200,200,200,200);
+-        mainpanel.add(slonce);
+-
+ 
+         //------  Konfiguracja Panelu tekstowego -----------------
+         actionpanel.setBounds(0,500,500,200);
+@@ -83,9 +78,19 @@
+ 
+         labelTekstowy.setText("Domyslny tekst");
+ 
++        // ----- Słońce-------------------
++        
++        slonce.setText("powinien byc tekst");
++        slonce.setBackground(Color.yellow);
++        slonce.setOpaque(true);
++        slonce.setVerticalAlignment(JLabel.CENTER);
++        slonce.setHorizontalAlignment(JLabel.CENTER);
++        slonce.setBounds(180,180,150,150);
++        slonce.setIcon(new ImageIcon("rysunek.png"));
++        mainpanel.add(slonce);
++
+ 
+     }
+-
+ 
+     @Override // Metoda (z interfejsu MouseListener) odpowiadająca za to co stanie się po kliknięciu myszką na dany przycisk
+     public void mouseClicked(MouseEvent e) {
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"60a1934c-f807-46ad-9072-292064518a32\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2PugnTZIPDQQSdLmsYIvwGNKuTS\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\r\n      <module name=\"projekt\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\r\n      <module name=\"projekt\" />\r\n      <option name=\"filePath\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"60a1934c-f807-46ad-9072-292064518a32\" name=\"Changes\" comment=\"\" />\r\n      <created>1684312547813</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1684312547813</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -6,6 +6,8 @@
+   <component name="ChangeListManager">
+     <list default="true" id="60a1934c-f807-46ad-9072-292064518a32" name="Changes" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/UcieczkaZZiemi/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UcieczkaZZiemi/.idea/gradle.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/pliki java/Plansza.java" beforeDir="false" afterPath="$PROJECT_DIR$/pliki java/Plansza.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -23,12 +25,14 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "last_opened_file_path": "C:/Users/jessi/Documents/GitHub/projekt/pliki java",
++    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+   }
+-}</component>
++}]]></component>
+   <component name="RunManager">
+     <configuration default="true" type="JetRunConfigurationType">
+       <module name="projekt" />
+@@ -55,4 +59,7 @@
+     </task>
+     <servers />
+   </component>
++  <component name="Vcs.Log.History.Properties">
++    <option name="SHOW_OTHER_BRANCHES" value="true" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: UcieczkaZZiemi/.idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleMigrationSettings\" migrationVersion=\"1\" />\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n          </set>\r\n        </option>\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/UcieczkaZZiemi/.idea/gradle.xml b/UcieczkaZZiemi/.idea/gradle.xml
+--- a/UcieczkaZZiemi/.idea/gradle.xml	
++++ b/UcieczkaZZiemi/.idea/gradle.xml	
+@@ -4,8 +4,11 @@
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
++        <option name="delegatedBuild" value="true" />
++        <option name="testRunner" value="GRADLE" />
+         <option name="distributionType" value="DEFAULT_WRAPPED" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="gradleJvm" value="18" />
+         <option name="modules">
+           <set>
+             <option value="$PROJECT_DIR$" />
