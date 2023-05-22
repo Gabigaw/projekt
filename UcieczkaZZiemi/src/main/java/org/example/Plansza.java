@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.FileNotFoundException;
 
 public class Plansza extends JFrame implements MouseListener {
     // -------- Zmienne odpowiedzialne za wygląd planszy ---------------
@@ -23,6 +24,7 @@ public class Plansza extends JFrame implements MouseListener {
     Kolonia merkury = new Kolonia("Merkury", 0, -50);
     Kolonia wenus = new Kolonia("Wenus", 0, -100);
     Kometa kometa = new Kometa();
+    Zakonczenia zakonczenie = new Zakonczenia();
 
     Plansza() {
         // -------- Ustawienia podstawowe Planszy: reakcja na zamknięcie, możliwość zmiany rozmiaru, rozmiar -------
@@ -76,7 +78,6 @@ public class Plansza extends JFrame implements MouseListener {
         slonce.setBounds(200, 200, 200, 200);
         mainpanel.add(slonce);
 
-
         //------  Konfiguracja Panelu tekstowego -----------------
         actionpanel.setBounds(0, 500, 500, 200);
         actionpanel.add(labelTekstowy);
@@ -85,14 +86,14 @@ public class Plansza extends JFrame implements MouseListener {
 
         labelTekstowy.setText("Domyslny tekst");
 
-
     }
+
     @Override // Metoda (z interfejsu MouseListener) odpowiadająca za to co stanie się po kliknięciu myszką na dany przycisk
     public void mouseClicked(MouseEvent e) {
-        if (e.getSource() == przyciskZiemi) {
-            labelTekstowy.setText("Ziemia kliknięta");
-        } else if (e.getSource() == przyciskMarsa) { // Obsługa kliknięcia przycisku Marsa
-            if (ziemia.liczbaLudnosci > 0) {//sprawdzanie czy na ziemi zostali jacys ludzie
+        if (ziemia.liczbaLudnosci != 0) {
+            if (e.getSource() == przyciskZiemi) {
+                labelTekstowy.setText("Ziemia kliknięta");
+            } else if (e.getSource() == przyciskMarsa) { // Obsługa kliknięcia przycisku Marsa
                 if (kometa.sprawdzCzyUderzy("Mars")) {
                     labelTekstowy.setText("Kometa uderzyla w rakiete");//jesli kometa uderza na to na planecie nie zostana przenoszone zadne osoby a na ziemi wartosc zmiejsza sie o 10
                     ziemia.liczbaLudnosci -= 10;
@@ -101,12 +102,8 @@ public class Plansza extends JFrame implements MouseListener {
                     mars.liczbaLudnosci += przeniesionaLiczba;
                     labelTekstowy.setText("Rakieta doleciala na marsa");//jesli kometa nie uderzyla przenosi sie 10 osob i wartosc jest zapisywana
                 }
-            } else {
-                labelTekstowy.setText("Ziemia wyludniona");// w przypadku gdy na ziemi pozostalo 0 osob to program daje tekst ze nie ma wiecej ludzi do przeniesienia
-            }
-            //tak jak w przypadku marsa
-        } else if (e.getSource() == przyciskMerkurego) {
-            if (ziemia.liczbaLudnosci > 0) {
+                //tak jak w przypadku marsa
+            } else if (e.getSource() == przyciskMerkurego) {
                 if (kometa.sprawdzCzyUderzy("Merkury")) {
                     labelTekstowy.setText("Kometa uderzyla w rakiete");
                     ziemia.liczbaLudnosci -= 10;
@@ -115,12 +112,8 @@ public class Plansza extends JFrame implements MouseListener {
                     merkury.liczbaLudnosci += przeniesionaLiczba;
                     labelTekstowy.setText("Rakieta doleciala na merkurego");
                 }
-            } else {
-                labelTekstowy.setText("Ziemia wyludniona");
-            }
-            //tak jak w przypadku marsa
-        } else if (e.getSource() == przyciskWenus) {
-            if (ziemia.liczbaLudnosci > 0) {
+                //tak jak w przypadku marsa
+            } else if (e.getSource() == przyciskWenus) {
                 if (kometa.sprawdzCzyUderzy("Wenus")) {
                     labelTekstowy.setText("Kometa uderzyla w rakiete");
                     ziemia.liczbaLudnosci -= 10;
@@ -129,8 +122,14 @@ public class Plansza extends JFrame implements MouseListener {
                     wenus.liczbaLudnosci += przeniesionaLiczba;
                     labelTekstowy.setText("Rakieta doleciala na wenus");
                 }
-            } else {
-                labelTekstowy.setText("Ziemia wyludniona");
+            }
+        } else {
+            labelTekstowy.setText("Ziemia wyludniona");
+
+            try {
+                zakonczenie.Koniec(merkury.liczbaLudnosci, wenus.liczbaLudnosci,mars.liczbaLudnosci);
+            } catch (FileNotFoundException ex) {
+                throw new RuntimeException(ex);
             }
         }
     }
