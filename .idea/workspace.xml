@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60a1934c-f807-46ad-9072-292064518a32" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pliki java/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UcieczkaZZiemi/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UcieczkaZZiemi/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UcieczkaZZiemi/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/UcieczkaZZiemi/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UcieczkaZZiemi/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/UcieczkaZZiemi/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UcieczkaZZiemi/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/UcieczkaZZiemi/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UcieczkaZZiemi/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/UcieczkaZZiemi/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UcieczkaZZiemi/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/UcieczkaZZiemi/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UcieczkaZZiemi/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/UcieczkaZZiemi/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UcieczkaZZiemi/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/UcieczkaZZiemi/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UcieczkaZZiemi/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UcieczkaZZiemi/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UcieczkaZZiemi/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/UcieczkaZZiemi/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UcieczkaZZiemi/src/main/java/org/example/Kolonia.java" beforeDir="false" afterPath="$PROJECT_DIR$/UcieczkaZZiemi/src/main/java/org/example/Kolonia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UcieczkaZZiemi/src/main/java/org/example/Plansza.java" beforeDir="false" afterPath="$PROJECT_DIR$/UcieczkaZZiemi/src/main/java/org/example/Plansza.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +41,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/cieju/Documents/GitHub/projekt",
+    "last_opened_file_path": "C:/Users/jessi/Documents/GitHub/projekt/UcieczkaZZiemi",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
