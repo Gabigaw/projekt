@@ -8,21 +8,21 @@ import java.io.FileNotFoundException;
 
 public class Plansza extends JFrame implements MouseListener {
     // -------- Zmienne odpowiedzialne za wygląd planszy ---------------
-    JPanel mainpanel = new JPanel(); // Panel główny
-    JPanel actionpanel = new JPanel(); // Panel wyświetlający komunikaty
-    JButton przyciskZiemi;
-    JButton przyciskMarsa;
-    JButton przyciskMerkurego;
-    JButton przyciskWenus;
-    JLabel labelTekstowy = new JLabel();
-    JLabel slonce = new JLabel();
+    private JPanel mainpanel = new JPanel(); // Panel główny
+    private JPanel actionpanel = new JPanel(); // Panel wyświetlający komunikaty
+    private JButton przyciskZiemi;
+    private JButton przyciskMarsa;
+   private JButton przyciskMerkurego;
+    private JButton przyciskWenus;
+   private JLabel labelTekstowy = new JLabel();
+    private JLabel slonce = new JLabel();
 
 
     //------------ Zmienne projektowe -------------
     Dom ziemia = new Dom("Ziemia", 100, 30);
-    Kolonia mars = new Kolonia("Mars", 0, 100);
-    Kolonia merkury = new Kolonia("Merkury", 0, -50);
-    Kolonia wenus = new Kolonia("Wenus", 0, -100);
+    Kolonia mars = new Kolonia("Mars", 0, 100, "Deszcze meteorytow: 2x wieksza szansa na upadek komety");
+    Kolonia merkury = new Kolonia("Merkury", 0, -50,"Wiatr sloneczny: 3x wieksza szansa na upadek komety");
+    Kolonia wenus = new Kolonia("Wenus", 0, -100,"Kratery wulkaniczne");
     Kometa kometa = new Kometa();
     Zakonczenia zakonczenie = new Zakonczenia();
 
@@ -84,7 +84,9 @@ public class Plansza extends JFrame implements MouseListener {
         actionpanel.setOpaque(true);
         this.add(actionpanel);
 
-        labelTekstowy.setText("Domyslny tekst");
+        labelTekstowy.setText("<html> Ziemia wrotce ulegnie zniszczeniu. Musimy przniesc jej <br/> mieszkancow, aby uniknac" +
+                "zaglady ludzkosci! Pamietaj, podroze <br/> miedzyplanetarne bywaja niebezpieczne, a kazda planeta <br/> ma inne" +
+                "warunki do zycia. Uratuj jak najwiecej, POWODZENIA!");
 
     }
 
