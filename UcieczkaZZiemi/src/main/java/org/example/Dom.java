@@ -4,7 +4,7 @@ public class Dom extends Planeta implements Ucieczka {
         this.nazwa = nazwa;
         this.liczbaLudnosci = liczbaLudnosci;
         this.temperatura = temperatura;
-        specjalnaCecha = "Duza ilosc wody, co drugi lot mozesz zabrac zabrac o 2 ludzi wiecej";
+        specjalnaCecha = "Duza ilosc wody, coraz cieplejszy klimat";
     }
 
     @Override

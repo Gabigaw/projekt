@@ -84,12 +84,12 @@ public class Plansza extends JFrame implements MouseListener {
         actionpanel.setOpaque(true);
         this.add(actionpanel);
 
-        labelTekstowy.setText("<html> Ziemia wrotce ulegnie zniszczeniu. Musimy przniesc jej <br/> mieszkancow, aby uniknac" +
-                "zaglady ludzkosci! Pamietaj, podroze <br/> miedzyplanetarne bywaja niebezpieczne, a kazda planeta <br/> ma inne" +
-                "warunki do zycia. Uratuj jak najwiecej, POWODZENIA!");
+        labelTekstowy.setText("<html> Ziemia wkrotce ulegnie zniszczeniu. Musimy przniesc jej <br/> mieszkancow, aby uniknac " +
+                " zaglady ludzkosci! Pamietaj, podroze <br/> miedzyplanetarne bywaja niebezpieczne, a kazda planeta <br/> ma inne " +
+                " warunki do zycia. Uratuj jak najwiecej, POWODZENIA!");
 
     }
-
+    int x=0; //ten x został dodany, by zakończenia wyświetlały się tylko raz
     @Override // Metoda (z interfejsu MouseListener) odpowiadająca za to co stanie się po kliknięciu myszką na dany przycisk
     public void mouseClicked(MouseEvent e) {
         if (ziemia.liczbaLudnosci != 0) {
@@ -128,10 +128,13 @@ public class Plansza extends JFrame implements MouseListener {
         } else {
             labelTekstowy.setText("Ziemia wyludniona");
 
-            try {
-                zakonczenie.Koniec(merkury.liczbaLudnosci, wenus.liczbaLudnosci,mars.liczbaLudnosci);
-            } catch (FileNotFoundException ex) {
-                throw new RuntimeException(ex);
+            if(x==0) {
+                try {
+                    zakonczenie.Koniec(merkury.liczbaLudnosci, wenus.liczbaLudnosci, mars.liczbaLudnosci);
+                } catch (FileNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                }
+                x++;
             }
         }
     }
@@ -147,13 +150,13 @@ public class Plansza extends JFrame implements MouseListener {
     @Override
     public void mouseEntered(MouseEvent e) {
         if (e.getSource() == przyciskZiemi) {
-            labelTekstowy.setText("<html>Ziemia parametry: <br/>" + "Temperatura: " + ziemia.temperatura + "<br/> Liczba ludnosci: " + ziemia.liczbaLudnosci + " <br/>Specjalna cecha: " + ziemia.specjalnaCecha + "<html/>");
+            labelTekstowy.setText("<html>Ziemia parametry: <br/>" + "Temperatura: " + ziemia.temperatura + "<br/> Liczba ludnosci: " + ziemia.liczbaLudnosci + " mln" + " <br/>Specjalna cecha: " + ziemia.specjalnaCecha + "<html/>");
         } else if (e.getSource() == przyciskMarsa) {
-            labelTekstowy.setText("<html>Mars parametry: <br/>" + "Temperatura: " + mars.temperatura + "<br/> Liczba ludnosci: " + mars.liczbaLudnosci + " <br/>Specjalna cecha: " + mars.specjalnaCecha + "<html/>");
+            labelTekstowy.setText("<html>Mars parametry: <br/>" + "Temperatura: " + mars.temperatura + "<br/> Liczba ludnosci: " + mars.liczbaLudnosci + " mln" + " <br/>Specjalna cecha: " + mars.specjalnaCecha + "<html/>");
         } else if (e.getSource() == przyciskMerkurego) {
-            labelTekstowy.setText("<html>Merkury parametry: <br/>" + "Temperatura: " + merkury.temperatura + "<br/> Liczba ludnosci: " + merkury.liczbaLudnosci + " <br/>Specjalna cecha: " + merkury.specjalnaCecha + "<html/>");
+            labelTekstowy.setText("<html>Merkury parametry: <br/>" + "Temperatura: " + merkury.temperatura + "<br/> Liczba ludnosci: " + merkury.liczbaLudnosci + " mln" + " <br/>Specjalna cecha: " + merkury.specjalnaCecha + "<html/>");
         } else if (e.getSource() == przyciskWenus) {
-            labelTekstowy.setText("<html>Wenus parametry: <br/>" + "Temperatura: " + wenus.temperatura + "<br/> Liczba ludnosci: " + wenus.liczbaLudnosci + " <br/>Specjalna cecha: " + wenus.specjalnaCecha + "<html/>");
+            labelTekstowy.setText("<html>Wenus parametry: <br/>" + "Temperatura: " + wenus.temperatura + "<br/> Liczba ludnosci: " + wenus.liczbaLudnosci + " mln" + " <br/>Specjalna cecha: " + wenus.specjalnaCecha + "<html/>");
         }
     }
 
