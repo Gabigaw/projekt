@@ -10,11 +10,11 @@ public class Zakonczenia extends JFrame{
     JLabel label = new JLabel();
    public Zakonczenia(int x,int y,int z) {
        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-       this.setSize(500, 500);
+       this.setSize(750, 500);
        this.setLayout(null);
        this.setVisible(true);
 
-       label.setBounds(0, 0, 500, 500);
+       label.setBounds(0, 0, 750, 500);
        label.setBackground(new Color(193,242,239));
        label.setOpaque(true);
        this.add(label);
@@ -124,7 +124,7 @@ public class Zakonczenia extends JFrame{
         Scanner in = new Scanner(file);
         while (in.hasNextLine()) {
             sb.append(in.nextLine());
-            sb.append("\n");
+            sb.append(" <br/> ");
         }
         in.close();
         String formatowanyText = "<html><body>" + sb.toString() + "</body></html>";
