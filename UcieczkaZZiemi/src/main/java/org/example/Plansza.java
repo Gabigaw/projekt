@@ -113,6 +113,7 @@ public class Plansza extends JFrame implements MouseListener {
 
     }
     int x=0; //ten x został dodany, by zakończenia wyświetlały się tylko raz
+    int ludzie=0; //zmienna potrzebna do zliczenia przetrwałych ludzi
     @Override // Metoda (z interfejsu MouseListener) odpowiadająca za to co stanie się po kliknięciu myszką na dany przycisk
     public void mouseClicked(MouseEvent e) {
         if (ziemia.liczbaLudnosci != 0) {
@@ -126,6 +127,7 @@ public class Plansza extends JFrame implements MouseListener {
                     int przeniesionaLiczba = ziemia.przenies(10);
                     mars.liczbaLudnosci += przeniesionaLiczba;
                     labelTekstowy.setText("Rakieta doleciala na marsa");//jesli kometa nie uderzyla przenosi sie 10 osob i wartosc jest zapisywana
+                    ludzie+=10;
                 }
                 //tak jak w przypadku marsa
             } else if (e.getSource() == przyciskMerkurego) {
@@ -136,6 +138,7 @@ public class Plansza extends JFrame implements MouseListener {
                     int przeniesionaLiczba = ziemia.przenies(10);
                     merkury.liczbaLudnosci += przeniesionaLiczba;
                     labelTekstowy.setText("Rakieta doleciala na merkurego");
+                    ludzie+=10;
                 }
                 //tak jak w przypadku marsa
             } else if (e.getSource() == przyciskWenus) {
@@ -146,6 +149,7 @@ public class Plansza extends JFrame implements MouseListener {
                     int przeniesionaLiczba = ziemia.przenies(10);
                     wenus.liczbaLudnosci += przeniesionaLiczba;
                     labelTekstowy.setText("Rakieta doleciala na wenus");
+                    ludzie+=10;
                 }
             }
         } else {
@@ -154,9 +158,9 @@ public class Plansza extends JFrame implements MouseListener {
             if(x==0) {
                 try {
                     //Otwieranie okienka z zakończeniem
-                    Zakonczenia proba = new Zakonczenia(merkury.liczbaLudnosci,wenus.liczbaLudnosci,mars.liczbaLudnosci);
+                    Zakonczenia proba = new Zakonczenia(merkury.liczbaLudnosci,wenus.liczbaLudnosci,mars.liczbaLudnosci,ludzie);
                     this.zakonczenie = proba;
-                    zakonczenie.Koniec(merkury.liczbaLudnosci, wenus.liczbaLudnosci, mars.liczbaLudnosci);
+                    zakonczenie.Koniec(merkury.liczbaLudnosci, wenus.liczbaLudnosci, mars.liczbaLudnosci,ludzie);
 
                 } catch (FileNotFoundException ex) {
                     throw new RuntimeException(ex);

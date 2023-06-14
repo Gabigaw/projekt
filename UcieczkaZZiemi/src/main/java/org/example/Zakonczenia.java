@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Zakonczenia extends JFrame{
     JLabel label = new JLabel();
-   public Zakonczenia(int x,int y,int z) {
+   public Zakonczenia(int x,int y,int z,int l) {
        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
        this.setSize(750, 500);
        this.setLayout(null);
@@ -20,14 +20,14 @@ public class Zakonczenia extends JFrame{
        this.add(label);
        // Wywołuje metodę koniec w konstruktorze
        try {
-           Koniec(x, y, z);
+           Koniec(x, y, z, l);
        } catch (FileNotFoundException e) {
            e.printStackTrace();
        }
 
    }
 
-    public void Koniec(int liczbaLudnosciMerkury,int liczbaLudnosciWenus, int liczbaLudnosciMars) throws FileNotFoundException {
+    public void Koniec(int liczbaLudnosciMerkury,int liczbaLudnosciWenus, int liczbaLudnosciMars, int ludzie) throws FileNotFoundException {
 
        //Skaner tekstu dla okienka
        StringBuilder sb = new StringBuilder();
@@ -40,6 +40,9 @@ public class Zakonczenia extends JFrame{
         File file1 = new File("KoniecZiemia.txt");
         Scanner in1 = new Scanner(file1);
         while (in1.hasNextLine()) zapis.println(in1.nextLine());
+        zapis.println(" ");
+
+        zapis.println("Udalo Ci sie uratowac "+ ludzie + " mln ludzi wysylajac ich na inne planety! Oto jak ma sie ich przyszlosc na wybranych koloniach.");
         zapis.println(" ");
 
         //zapis pliku tekstowego z sytuacją na Merkurym zależnie od wielkości kolonii
