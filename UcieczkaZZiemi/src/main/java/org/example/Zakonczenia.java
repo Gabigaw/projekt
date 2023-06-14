@@ -1,11 +1,36 @@
 package org.example;
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
- public class Zakonczenia {
+public class Zakonczenia extends JFrame{
+    JLabel label = new JLabel();
+   public Zakonczenia(int x,int y,int z) {
+       this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+       this.setSize(500, 500);
+       this.setLayout(null);
+       this.setVisible(true);
+
+       label.setBounds(0, 0, 500, 500);
+       label.setBackground(new Color(193,242,239));
+       label.setOpaque(true);
+       this.add(label);
+       // Wywołuje metodę koniec w konstruktorze
+       try {
+           Koniec(x, y, z);
+       } catch (FileNotFoundException e) {
+           e.printStackTrace();
+       }
+
+   }
+
     public void Koniec(int liczbaLudnosciMerkury,int liczbaLudnosciWenus, int liczbaLudnosciMars) throws FileNotFoundException {
+
+       //Skaner tekstu dla okienka
+       StringBuilder sb = new StringBuilder();
 
         //zapis do pliku ostatecznego
         PrintWriter zapis = new PrintWriter("KoniecLosLudzkosci.txt");
@@ -93,10 +118,18 @@ import java.util.Scanner;
 
         zapis.close();
 
+
         //odczyt całego pliku ostatecznego
         File file = new File("KoniecLosLudzkosci.txt");
         Scanner in = new Scanner(file);
-        while (in.hasNextLine()) System.out.println(in.nextLine());
+        while (in.hasNextLine()) {
+            sb.append(in.nextLine());
+            sb.append("\n");
+        }
+        in.close();
+        String formatowanyText = "<html><body>" + sb.toString() + "</body></html>";
+        label.setText(formatowanyText);
     }
+
 
 }

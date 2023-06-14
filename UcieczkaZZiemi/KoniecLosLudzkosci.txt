@@ -6,10 +6,10 @@ przyczynił się do zwiększenia śmiertelności i osłabienia zdrowia populacji
 Nieiwelu ludzi, którzy przeżyli kataklizmy opóścili zniszczoną Ziemię, aby ta samoistnie się odbudowała.
  
 Sytuacja na Merkury:
-Kolonia na Merkurym, choć mała, zmierza ku klęsce. Ekstremalne warunki panujące na najbliższej Słońcu
-planecie stanowią ogromne wyzwanie dla kolonistów. Ciągłe bombardowanie intensywnym promieniowaniem
-słonecznym i ekstremalne temperatury utrudniają rozwój infrastruktury i utrzymanie podstawowych warunków życia.
-Niestety, kolonia nie przetrwała dłużej niż 10 lat.
+Średniej wielkości kolonia na Merkurym stoi w obliczu licznych wyzwań, jednak dzięki determinacji
+i innowacyjnemu podejściu, mieszkańcy udzielają sobie pomocy i radzą sobie z trudnościami. Pomimo
+ekstremalnych warunków panujących na planecie, kolonia osiągnęła pewien stopień samowystarczalności
+i wypracowała strategie przetrwania. Ta kolonia nie zwiększy swojej ludności przez setki lat ale przetrwa.
  
 Sytuacja na Wenus:
 Mała ekologiczna kolonia na Wenus jest przykładem nowatorskiego podejścia do osiedlania się w skrajnych warunkach.
@@ -20,7 +20,8 @@ dostępne zasoby.
 Kolonia dobrze sobie radzi i długo przetrwa.
  
 Sytuacja na Marsie:
-Mała kolonia na Marsie odnosi olbrzymi sukces i dynamicznie rośnie, stając się symbolem pionierskiego
-osiągnięcia w kolonizacji czerwonej planety. Mieszkańcy kolonii wykorzystują zaawansowane technologie
-i zasoby Marsa, aby stworzyć trwałe i efektywne środowisko życia.
-Kolonia drastycznie się rozrasta stając się największą kolonią w układzie!
+Średnia wielkość kolonii na Marsie, początkowo rozwijającej się harmonijnie, niestety staje się areną napięć
+i konfliktów. Wraz z upływem czasu, presja związana z brakiem zasobów, izolacją od Ziemi oraz rosnącymi
+różnicami ideologicznymi i politycznymi powoduje stopniowy wzrost agresji w społeczności.
+Marsjanie w przypływie agresji próbują podbić inne kolonie co ostatecznie doprowadza ich do własnej zagłady.
+Kolonia nie przetrwała.

@@ -8,14 +8,43 @@ import java.io.FileNotFoundException;
 
 public class Plansza extends JFrame implements MouseListener {
     // -------- Zmienne odpowiedzialne za wygląd planszy ---------------
-    private JPanel mainpanel = new JPanel(); // Panel główny
+    private JPanel mainpanel = new JPanel(){
+
+        //-------Słońce-----------
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            // Rysowanie kółka na środku
+            int centerX = getWidth() / 2;
+            int centerY = getHeight() / 2;
+            int size = 90;
+            g.setColor(Color.YELLOW);
+            g.fillOval(centerX - size/2, centerY - size/2, size, size);
+
+            int circleX = getWidth() / 2;
+            int circleY = getHeight() / 2;
+            int size2 = 100;
+            g.setColor(Color.YELLOW);
+            g.drawOval(circleX - size2/2, circleY - size2/2, size2, size2);
+
+            int circle2X = getWidth() / 2;
+            int circle2Y = getHeight() / 2;
+            int size3 = 110;
+            g.setColor(Color.YELLOW);
+            g.drawOval(circle2X - size3/2, circle2Y - size3/2, size3, size3);
+
+            int circle3X = getWidth() / 2;
+            int circle3Y = getHeight() / 2;
+            int size4 = 120;
+            g.setColor(Color.YELLOW);
+            g.drawOval(circle3X - size4/2, circle3Y - size4/2, size4, size4);
+
+        }
+
+    }; // Panel główny
     private JPanel actionpanel = new JPanel(); // Panel wyświetlający komunikaty
-    private JButton przyciskZiemi;
-    private JButton przyciskMarsa;
-   private JButton przyciskMerkurego;
-    private JButton przyciskWenus;
-   private JLabel labelTekstowy = new JLabel();
-    private JLabel slonce = new JLabel();
+    private JButton przyciskZiemi,przyciskMarsa,przyciskMerkurego,przyciskWenus;
+    private JLabel labelTekstowy = new JLabel();
+
 
 
     //------------ Zmienne projektowe -------------
@@ -24,7 +53,7 @@ public class Plansza extends JFrame implements MouseListener {
     Kolonia merkury = new Kolonia("Merkury", 0, -50,"Wiatr sloneczny: 3x wieksza szansa na upadek komety");
     Kolonia wenus = new Kolonia("Wenus", 0, -100,"Kratery wulkaniczne");
     Kometa kometa = new Kometa();
-    Zakonczenia zakonczenie = new Zakonczenia();
+    Zakonczenia zakonczenie;
 
     Plansza() {
         // -------- Ustawienia podstawowe Planszy: reakcja na zamknięcie, możliwość zmiany rozmiaru, rozmiar -------
@@ -71,12 +100,6 @@ public class Plansza extends JFrame implements MouseListener {
         przyciskMerkurego.setBounds(10, 400, 80, 70);
         mainpanel.add(przyciskMerkurego);
 
-        // ----- Słońce-------------------
-        slonce.setIcon(new ImageIcon("rysunek.png"));
-        slonce.setVerticalAlignment(JLabel.CENTER);
-        slonce.setHorizontalAlignment(JLabel.CENTER);
-        slonce.setBounds(200, 200, 200, 200);
-        mainpanel.add(slonce);
 
         //------  Konfiguracja Panelu tekstowego -----------------
         actionpanel.setBounds(0, 500, 500, 200);
@@ -130,7 +153,11 @@ public class Plansza extends JFrame implements MouseListener {
 
             if(x==0) {
                 try {
+                    //Otwieranie okienka z zakończeniem
+                    Zakonczenia proba = new Zakonczenia(merkury.liczbaLudnosci,wenus.liczbaLudnosci,mars.liczbaLudnosci);
+                    this.zakonczenie = proba;
                     zakonczenie.Koniec(merkury.liczbaLudnosci, wenus.liczbaLudnosci, mars.liczbaLudnosci);
+
                 } catch (FileNotFoundException ex) {
                     throw new RuntimeException(ex);
                 }
